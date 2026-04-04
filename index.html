@@ -27,6 +27,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:100; height:var(--navh); d
 .nav-links { display:flex; gap:2rem; list-style:none; }
 .nav-links a { font-size:13px; color:var(--ink3); text-decoration:none; transition:color 0.2s; }
 .nav-links a:hover { color:var(--ink); }
+.lang-toggle { display:flex; align-items:center; border:1px solid var(--rule); border-radius:980px; overflow:hidden; margin-left:1.5rem; }
+.lang-btn { font-family:var(--mono); font-size:11px; font-weight:500; padding:5px 13px; background:transparent; border:none; cursor:pointer; color:var(--ink4); transition:all 0.2s; letter-spacing:0.04em; }
+.lang-btn.active { background:var(--orange); color:#fff; }
+.lang-btn:hover:not(.active) { color:var(--ink); }
 
 /* HERO */
 .hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:calc(var(--navh) + 80px) max(24px,8vw) 100px; max-width:1100px; margin:0 auto; }
@@ -165,48 +169,52 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 <nav>
   <a class="nav-logo" href="#">LH.EVARISTO</a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about" data-en="About" data-pt="Sobre">About</a></li>
+    <li><a href="#projects" data-en="Projects" data-pt="Projetos">Projects</a></li>
+    <li><a href="#experience" data-en="Experience" data-pt="Experiência">Experience</a></li>
+    <li><a href="#contact" data-en="Contact" data-pt="Contato">Contact</a></li>
   </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-eyebrow">Data Analyst · Recife, Brazil · Open to work & projects</p>
-  <h1 class="hero-title">Bringing intelligence<br><span class="muted">to your operation.</span></h1>
+  <p class="hero-eyebrow" data-key="hero-eyebrow">Data Analyst · Recife, Brazil · Open to work & projects</p>
+  <h1 class="hero-title" data-key="hero-title">Bringing intelligence<br><span class="muted">to your operation.</span></h1>
 
   <div class="capability-row">
     <div class="cap-card">
-      <p class="cap-title">BI & Analytics</p>
-      <p class="cap-desc">Dashboards and KPIs that actually drive decisions — not just look good.</p>
+      <p class="cap-title" data-key="cap-title-1">BI & Analytics</p>
+      <p class="cap-desc" data-key="cap-desc-1">Dashboards and KPIs that actually drive decisions — not just look good.</p>
     </div>
     <div class="cap-card">
-      <p class="cap-title">Data Integration</p>
-      <p class="cap-desc">APIs, external feeds, disparate sources — unified into one clean pipeline.</p>
+      <p class="cap-title" data-key="cap-title-2">Data Integration</p>
+      <p class="cap-desc" data-key="cap-desc-2">APIs, external feeds, disparate sources — unified into one clean pipeline.</p>
     </div>
     <div class="cap-card">
-      <p class="cap-title">Automation</p>
-      <p class="cap-desc">Manual processes and reports — replaced with routines that run themselves.</p>
+      <p class="cap-title" data-key="cap-title-3">Automation</p>
+      <p class="cap-desc" data-key="cap-desc-3">Manual processes and reports — replaced with routines that run themselves.</p>
     </div>
     <div class="cap-card">
-      <p class="cap-title">Operational Tools</p>
-      <p class="cap-desc">Apps that put real-time data in the hands of whoever needs it on the floor.</p>
+      <p class="cap-title" data-key="cap-title-4">Operational Tools</p>
+      <p class="cap-desc" data-key="cap-desc-4">Apps that put real-time data in the hands of whoever needs it on the floor.</p>
     </div>
   </div>
 
   <div class="cap-footer">
     <div class="cap-line"></div>
-    <span class="cap-or">or all of it together — from problem to deployed solution</span>
+    <span class="cap-or" data-key="cap-or">or all of it together — from problem to deployed solution</span>
     <div class="cap-line"></div>
   </div>
 
   <div class="hero-bottom">
-    <p class="hero-sub">Nearly 5 years in aviation and operations. I identify where data is failing the team — and build the solution, from analysis to deployment.</p>
+    <p class="hero-sub" data-key="hero-sub">Nearly 5 years in aviation and operations. I identify where data is failing the team — and build the solution, from analysis to deployment.</p>
     <div class="hero-actions">
-      <a href="#projects" class="btn btn-primary">See my work</a>
-      <a href="#contact" class="btn btn-ghost">Let's talk</a>
+      <a href="#projects" class="btn btn-primary" data-key="btn-work">See my work</a>
+      <a href="#contact" class="btn btn-ghost" data-key="btn-talk">Let's talk</a>
     </div>
   </div>
 </div>
@@ -216,17 +224,17 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
   <div class="section-inner">
     <div class="about-grid">
       <div class="about-text reveal">
-        <p class="tag">About</p>
-        <h2 class="section-title" style="color:#fff;margin-bottom:28px;">I started with BI.<br>I didn't stop there.</h2>
-        <p>My career started with dashboards — Power BI reports for airport operations, KPIs for station managers, financial tracking for planning teams. I got good at it. Then I got curious about what was upstream.</p>
-        <p>Once you understand where data comes from, you can't go back to just visualising it. I started pulling from <strong>APIs, point systems, scheduling tools, external feeds</strong> — integrating sources that people didn't even know could talk to each other.</p>
-        <p>That led to building complete tools: a real-time staffing monitor, a billing system, a flight schedule converter that became a group-wide standard. Each one started as an analysis. <strong>Each one ended as a working product.</strong></p>
-        <p>I'm not a developer who learned analytics. I'm an analyst who learned to build — and I work best when those things are the same job.</p>
+        <p class="tag" data-key="about-tag">About</p>
+        <h2 class="section-title" style="color:#fff;margin-bottom:28px;" data-key="about-title">I started with BI.<br>I didn't stop there.</h2>
+        <p data-key="about-p1">My career started with dashboards — Power BI reports for airport operations, KPIs for station managers, financial tracking for planning teams. I got good at it. Then I got curious about what was upstream.</p>
+        <p data-key="about-p2">Once you understand where data comes from, you can't go back to just visualising it. I started pulling from <strong>APIs, point systems, scheduling tools, external feeds</strong> — integrating sources that people didn't even know could talk to each other.</p>
+        <p data-key="about-p3">That led to building complete tools: a real-time staffing monitor, a billing system, a flight schedule converter that became a group-wide standard. Each one started as an analysis. <strong>Each one ended as a working product.</strong></p>
+        <p data-key="about-p4">I'm not a developer who learned analytics. I'm an analyst who learned to build — and I work best when those things are the same job.</p>
       </div>
       <div class="reveal d1">
         <div class="about-stats" style="grid-template-columns:1fr 1fr;">
-          <div class="stat-box"><span class="stat-val">~<em>5</em></span><span class="stat-label">Years in analytics & ops</span></div>
-          <div class="stat-box"><span class="stat-val"><em>1</em></span><span class="stat-label">Najm Award — Emirates Group</span></div>
+          <div class="stat-box"><span class="stat-val">~<em>5</em></span><span class="stat-label" data-key="stat-label-1">Years in analytics & ops</span></div>
+          <div class="stat-box"><span class="stat-val"><em>1</em></span><span class="stat-label" data-key="stat-label-2">Najm Award — Emirates Group</span></div>
         </div>
         <div class="stack-section">
           <div class="stack-group">
@@ -250,22 +258,22 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 <!-- PROJECTS -->
 <div class="projects-wrap section-wrap" id="projects">
   <div class="section-inner">
-    <p class="tag reveal">Projects</p>
-    <h2 class="section-title reveal">Three problems.<br>Three systems.</h2>
-    <p class="section-sub reveal">Each started as an analysis that revealed a gap. Each ended as a working solution in production.</p>
+    <p class="tag reveal" data-key="proj-tag">Projects</p>
+    <h2 class="section-title reveal" data-key="proj-section-title">Three problems.<br>Three systems.</h2>
+    <p class="section-sub reveal" data-key="proj-section-sub">Each started as an analysis that revealed a gap. Each ended as a working solution in production.</p>
 
     <div class="project-list">
 
       <div class="project-card dark reveal">
         <div>
-          <p class="proj-num">P.01 — Featured</p>
-          <h3 class="proj-title">Real-Time Operational Monitoring System</h3>
-          <p class="proj-desc">A complete BI + web system for tracking flights, staffing and overtime at Recife Airport — live, refreshed every 10 minutes.</p>
+          <p class="proj-num" data-key="p1-num">P.01 — Featured</p>
+          <h3 class="proj-title" data-key="p1-title">Real-Time Operational Monitoring System</h3>
+          <p class="proj-desc" data-key="p1-desc">A complete BI + web system for tracking flights, staffing and overtime at Recife Airport — live, refreshed every 10 minutes.</p>
           <span class="proj-impact">dnata — Recife Airport</span>
         </div>
         <div>
-          <p class="proj-detail-title">The full story</p>
-          <p class="proj-story">It started as a Power BI analysis. The data showed that overtime was spiking in ways supervisors couldn't catch until end of shift — too late to do anything about it. The problem wasn't the data. It was the lag.<br><br>I built a system that pulls directly from the timesheet system and cross-references it with the operational schedule automatically every 10 minutes. Cloud-hosted on Supabase. Web front-end accessible from any device on the floor. Supervisors went from finding out about overtime problems at month-end to acting on them in real time.</p>
+          <p class="proj-detail-title" data-key="p1-story-label">The full story</p>
+          <p class="proj-story" data-key="p1-story">It started as a Power BI analysis. The data showed that overtime was spiking in ways supervisors couldn't catch until end of shift — too late to do anything about it. The problem wasn't the data. It was the lag.<br><br>I built a system that pulls directly from the timesheet system and cross-references it with the operational schedule automatically every 10 minutes. Cloud-hosted on Supabase. Web front-end accessible from any device on the floor. Supervisors went from finding out about overtime problems at month-end to acting on them in real time.</p>
           <div class="proj-tags">
             <span class="proj-tag">Python</span><span class="proj-tag">Supabase</span><span class="proj-tag">REST API</span><span class="proj-tag">Power BI</span><span class="proj-tag">Web front-end</span><span class="proj-tag">Full-stack</span>
           </div>
@@ -274,14 +282,14 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 
       <div class="project-card reveal">
         <div>
-          <p class="proj-num">P.02</p>
-          <h3 class="proj-title">ANAC → SSIM Flight Schedule Converter</h3>
-          <p class="proj-desc">Converted Brazil's public aviation authority data into SSIM format — unlocking 12 airlines that the operations system couldn't previously read.</p>
+          <p class="proj-num" data-key="p2-num">P.02</p>
+          <h3 class="proj-title" data-key="p2-title">ANAC → SSIM Flight Schedule Converter</h3>
+          <p class="proj-desc" data-key="p2-desc">Converted Brazil's public aviation authority data into SSIM format — unlocking 12 airlines that the operations system couldn't previously read.</p>
           <span class="proj-impact">Najm Award — Emirates Group</span>
         </div>
         <div>
-          <p class="proj-detail-title">The full story</p>
-          <p class="proj-story">dnata's ground handling system only had SSIM data for GOL, Azul, and LATAM. Every other airline operating in Brazil — 12 of them — had to be managed manually. ANAC publishes all schedule data publicly, but in an incompatible format.<br><br>I built a converter that takes the ANAC data and outputs clean, valid SSIM files ready for system import. Emirates Group then replicated the solution in Canada, the Netherlands, and Australia. It won the internal Najm award for operational impact.</p>
+          <p class="proj-detail-title" data-key="p2-story-label">The full story</p>
+          <p class="proj-story" data-key="p2-story">dnata's ground handling system only had SSIM data for GOL, Azul, and LATAM. Every other airline operating in Brazil — 12 of them — had to be managed manually. ANAC publishes all schedule data publicly, but in an incompatible format.<br><br>I built a converter that takes the ANAC data and outputs clean, valid SSIM files ready for system import. The project was recognised with the internal Najm award for operational impact.</p>
           <div class="proj-tags">
             <span class="proj-tag">Python</span><span class="proj-tag">SSIM format</span><span class="proj-tag">ANAC public data</span><span class="proj-tag">Data modeling</span><span class="proj-tag">Aviation ops</span>
           </div>
@@ -290,13 +298,13 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 
       <div class="project-card reveal">
         <div>
-          <p class="proj-num">P.03</p>
-          <h3 class="proj-title">Operational Billing System — Blueground</h3>
-          <p class="proj-desc">A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.</p>
+          <p class="proj-num" data-key="p3-num">P.03</p>
+          <h3 class="proj-title" data-key="p3-title">Operational Billing System — Blueground</h3>
+          <p class="proj-desc" data-key="p3-desc">A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.</p>
         </div>
         <div>
-          <p class="proj-detail-title">The full story</p>
-          <p class="proj-story">Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management visibility across the entire operation from one place.</p>
+          <p class="proj-detail-title" data-key="p3-story-label">The full story</p>
+          <p class="proj-story" data-key="p3-story">Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management visibility across the entire operation from one place.</p>
           <div class="proj-tags">
             <span class="proj-tag">AppSheet</span><span class="proj-tag">Supabase</span><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">ETL</span><span class="proj-tag">Invoice automation</span>
           </div>
@@ -310,62 +318,62 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 <!-- EXPERIENCE -->
 <div class="section-wrap" id="experience">
   <div class="section-inner">
-    <p class="tag reveal">Experience</p>
-    <h2 class="section-title reveal">Where I've worked.</h2>
+    <p class="tag reveal" data-key="exp-tag">Experience</p>
+    <h2 class="section-title reveal" data-key="exp-title">Where I've worked.</h2>
     <div style="margin-top:48px;">
       <div class="exp-item">
         <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Nov 2024 — Present</p></div>
         <div>
-          <p class="exp-role">Operational Planning Specialist</p>
+          <p class="exp-role" data-key="exp-role-1">Operational Planning Specialist</p>
           <ul class="exp-bullets">
-            <li>Lead <span class="hi">D+45/60/90 workforce forecasting</span> for multiple Brazilian airports</li>
-            <li>Capacity studies supporting pricing negotiations and airline client decisions</li>
-            <li>Performance dashboards identifying cost-saving opportunities for senior leadership</li>
+            <li data-key="exp-b1-1">Lead <span class="hi">D+45/60/90 workforce forecasting</span> for multiple Brazilian airports</li>
+            <li data-key="exp-b1-2">Capacity studies supporting pricing negotiations and airline client decisions</li>
+            <li data-key="exp-b1-3">Performance dashboards identifying cost-saving opportunities for senior leadership</li>
           </ul>
         </div>
       </div>
       <div class="exp-item">
         <div><p class="exp-company">Blueground</p><p class="exp-period">Oct 2023 — Oct 2024</p></div>
         <div>
-          <p class="exp-role">Capacity Planning & Analytics Specialist</p>
+          <p class="exp-role" data-key="exp-role-2">Capacity Planning & Analytics Specialist</p>
           <ul class="exp-bullets">
-            <li>Built <span class="hi">Python ETL pipeline</span> with API integrations automating capacity reporting</li>
-            <li>End-to-end operational data system: field capture, Supabase, automated billing and BI</li>
+            <li data-key="exp-b2-1">Built <span class="hi">Python ETL pipeline</span> with API integrations automating capacity reporting</li>
+            <li data-key="exp-b2-2">End-to-end operational data system: field capture, Supabase, automated billing and BI</li>
           </ul>
         </div>
       </div>
       <div class="exp-item">
         <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Apr — Oct 2023</p></div>
         <div>
-          <p class="exp-role">Operational Planning Analyst Sr.</p>
+          <p class="exp-role" data-key="exp-role-3">Operational Planning Analyst Sr.</p>
           <ul class="exp-bullets">
-            <li>Real-time overtime monitoring system end-to-end — <span class="hi">measurable impact, first quarter</span></li>
-            <li>SSIM converter adopted as group standard — <span class="hi">Najm Award, Emirates Group</span></li>
+            <li data-key="exp-b3-1">Real-time overtime monitoring system end-to-end — <span class="hi">measurable impact, first quarter</span></li>
+            <li data-key="exp-b3-2">SSIM converter adopted as group standard — <span class="hi">Najm Award, Emirates Group</span></li>
           </ul>
         </div>
       </div>
       <div class="exp-item">
         <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Apr 2022 — Apr 2023</p></div>
         <div>
-          <p class="exp-role">Operational Planning Analyst</p>
+          <p class="exp-role" data-key="exp-role-4">Operational Planning Analyst</p>
           <ul class="exp-bullets">
-            <li>Power BI dashboard integrating flight forecasts, headcount and cost — adopted by station managers</li>
-            <li>Predictive demand analyses supporting workforce allocation within annual budget</li>
+            <li data-key="exp-b4-1">Power BI dashboard integrating flight forecasts, headcount and cost — adopted by station managers</li>
+            <li data-key="exp-b4-2">Predictive demand analyses supporting workforce allocation within annual budget</li>
           </ul>
         </div>
       </div>
       <div class="exp-item">
         <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Oct 2021 — Apr 2022</p></div>
         <div>
-          <p class="exp-role">Operational Planning Assistant</p>
-          <ul class="exp-bullets"><li>Supported planning routines, schedule analysis and workforce data organization</li></ul>
+          <p class="exp-role" data-key="exp-role-5">Operational Planning Assistant</p>
+          <ul class="exp-bullets"><li data-key="exp-b5-1">Supported planning routines, schedule analysis and workforce data organization</li></ul>
         </div>
       </div>
       <div class="exp-item">
         <div><p class="exp-company">Tempest Security</p><p class="exp-period">2019 — 2020</p></div>
         <div>
-          <p class="exp-role">Accounting Intern</p>
-          <ul class="exp-bullets"><li>Account reconciliations and financial report preparation</li></ul>
+          <p class="exp-role" data-key="exp-role-6">Accounting Intern</p>
+          <ul class="exp-bullets"><li data-key="exp-b6-1">Account reconciliations and financial report preparation</li></ul>
         </div>
       </div>
     </div>
@@ -375,17 +383,17 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 <!-- CONTACT -->
 <div class="contact-wrap" id="contact">
   <div class="contact-inner">
-    <p class="tag">Contact</p>
-    <h2 class="section-title">Open to the right opportunity.</h2>
-    <p class="section-sub">Whether you need someone on the team full-time, or someone to solve a specific operational data problem — let's talk.</p>
+    <p class="tag" data-key="contact-tag">Contact</p>
+    <h2 class="section-title" data-key="contact-title">Open to the right opportunity.</h2>
+    <p class="section-sub" data-key="contact-sub">Whether you need someone on the team full-time, or someone to solve a specific operational data problem — let's talk.</p>
     <div class="contact-options">
       <div class="contact-option">
-        <p class="contact-option-title">Full-time roles</p>
-        <p class="contact-option-desc">Especially aviation, ground handling and ops-heavy industries. Open to remote and international.</p>
+        <p class="contact-option-title" data-key="contact-opt1-title">Full-time roles</p>
+        <p class="contact-option-desc" data-key="contact-opt1-desc">Especially aviation, ground handling and ops-heavy industries. Open to remote and international.</p>
       </div>
       <div class="contact-option">
-        <p class="contact-option-title">Freelance projects</p>
-        <p class="contact-option-desc">BI dashboards, data pipelines, automation, operational tools. Fixed scope or ongoing retainer.</p>
+        <p class="contact-option-title" data-key="contact-opt2-title">Freelance projects</p>
+        <p class="contact-option-desc" data-key="contact-opt2-desc">BI dashboards, data pipelines, automation, operational tools. Fixed scope or ongoing retainer.</p>
       </div>
     </div>
     <div class="contact-links">
@@ -398,15 +406,190 @@ footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,
 </div>
 
 <footer>
-  <span>© 2025 Luis Henrique Evaristo</span>
-  <span>Recife, Brazil · luis.luna@ufpe.br</span>
+  <span data-key="footer-copy">© 2025 Luis Henrique Evaristo</span>
+  <span data-key="footer-loc">Recife, Brazil · luis.luna@ufpe.br</span>
 </footer>
 
 <script>
+  // ── ACTIVE NAV ON SCROLL ──────────────────────────────
+  const sections = document.querySelectorAll('div[id], section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navAnchors.forEach(a => {
+          a.style.color = a.getAttribute('href') === `#${id}`
+            ? 'var(--orange)'
+            : '';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(s => sectionObs.observe(s));
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
   document.querySelectorAll('.reveal, .exp-item').forEach(el => obs.observe(el));
+
+  // ── TRANSLATIONS ──────────────────────────────────────
+  const T = {
+    en: {
+      // meta
+      'page-title': 'Luis Henrique Evaristo — Data Analyst & Builder',
+      // nav
+      'nav-about': 'About', 'nav-projects': 'Projects', 'nav-experience': 'Experience', 'nav-contact': 'Contact',
+      // hero
+      'hero-eyebrow': 'Data Analyst · Recife, Brazil · Open to work & projects',
+      'hero-title': 'Bringing intelligence<br><span class="muted">to your operation.</span>',
+      'cap-title-1': 'BI & Analytics', 'cap-desc-1': 'Dashboards and KPIs that actually drive decisions — not just look good.',
+      'cap-title-2': 'Data Integration', 'cap-desc-2': 'APIs, external feeds, disparate sources — unified into one clean pipeline.',
+      'cap-title-3': 'Automation', 'cap-desc-3': 'Manual processes and reports — replaced with routines that run themselves.',
+      'cap-title-4': 'Operational Tools', 'cap-desc-4': 'Apps that put real-time data in the hands of whoever needs it on the floor.',
+      'cap-or': 'or all of it together — from problem to deployed solution',
+      'hero-sub': 'Nearly 5 years in aviation and operations. I identify where data is failing the team — and build the solution, from analysis to deployment.',
+      'btn-work': 'See my work', 'btn-talk': "Let's talk",
+      // about
+      'about-tag': 'About',
+      'about-title': "I started with BI.<br>I didn't stop there.",
+      'about-p1': 'My career started with dashboards — Power BI reports for airport operations, KPIs for station managers, financial tracking for planning teams. I got good at it. Then I got curious about what was upstream.',
+      'about-p2': 'Once you understand where data comes from, you can\'t go back to just visualising it. I started pulling from <strong>APIs, point systems, scheduling tools, external feeds</strong> — integrating sources that people didn\'t even know could talk to each other.',
+      'about-p3': 'That led to building complete tools: a real-time staffing monitor, a billing system, a flight schedule converter that became a group-wide standard. Each one started as an analysis. <strong>Each one ended as a working product.</strong>',
+      'about-p4': "I'm not a developer who learned analytics. I'm an analyst who learned to build — and I work best when those things are the same job.",
+      'stat-label-1': 'Years in analytics & ops', 'stat-label-2': 'Najm Award — Emirates Group',
+      'stack-label-1': 'Analytics', 'stack-label-2': 'Integration & infra', 'stack-label-3': 'Development',
+      // projects
+      'proj-tag': 'Projects',
+      'proj-section-title': 'Three problems.<br>Three systems.',
+      'proj-section-sub': 'Each started as an analysis that revealed a gap. Each ended as a working solution in production.',
+      'p1-num': 'P.01 — Featured', 'p1-title': 'Real-Time Operational Monitoring System',
+      'p1-desc': 'A complete BI + web system for tracking flights, staffing and overtime at Recife Airport — live, refreshed every 10 minutes.',
+      'p1-story-label': 'The full story',
+      'p1-story': 'It started as a Power BI analysis. The data showed that overtime was spiking in ways supervisors couldn\'t catch until end of shift — too late to do anything about it. The problem wasn\'t the data. It was the lag.<br><br>I built a system that pulls directly from the timesheet system and cross-references it with the operational schedule automatically every 10 minutes. Cloud-hosted on Supabase. Web front-end accessible from any device on the floor. Supervisors went from finding out about overtime problems at month-end to acting on them in real time.',
+      'p2-num': 'P.02', 'p2-title': 'ANAC → SSIM Flight Schedule Converter',
+      'p2-desc': "Converted Brazil's public aviation authority data into SSIM format — unlocking 12 airlines that the operations system couldn't previously read.",
+      'p2-story-label': 'The full story',
+      'p2-story': "dnata's ground handling system only had SSIM data for GOL, Azul, and LATAM. Every other airline operating in Brazil — 12 of them — had to be managed manually. ANAC publishes all schedule data publicly, but in an incompatible format.<br><br>I built a converter that takes the ANAC data and outputs clean, valid SSIM files ready for system import. The project was recognised with the internal Najm award for operational impact.",
+      'p3-num': 'P.03', 'p3-title': 'Operational Billing System — Blueground',
+      'p3-desc': 'A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.',
+      'p3-story-label': 'The full story',
+      'p3-story': 'Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management visibility across the entire operation from one place.',
+      // experience
+      'exp-tag': 'Experience', 'exp-title': "Where I've worked.",
+      'exp-role-1': 'Operational Planning Specialist',
+      'exp-b1-1': 'Lead <span class="hi">D+45/60/90 workforce forecasting</span> for multiple Brazilian airports',
+      'exp-b1-2': 'Capacity studies supporting pricing negotiations and airline client decisions',
+      'exp-b1-3': 'Performance dashboards identifying cost-saving opportunities for senior leadership',
+      'exp-role-2': 'Capacity Planning & Analytics Specialist',
+      'exp-b2-1': 'Built <span class="hi">Python ETL pipeline</span> with API integrations automating capacity reporting',
+      'exp-b2-2': 'End-to-end operational data system: field capture, Supabase, automated billing and BI',
+      'exp-role-3': 'Operational Planning Analyst Sr.',
+      'exp-b3-1': 'Real-time overtime monitoring system end-to-end — <span class="hi">measurable impact, first quarter</span>',
+      'exp-b3-2': 'SSIM converter adopted as group standard — <span class="hi">Najm Award, Emirates Group</span>',
+      'exp-role-4': 'Operational Planning Analyst',
+      'exp-b4-1': 'Power BI dashboard integrating flight forecasts, headcount and cost — adopted by station managers',
+      'exp-b4-2': 'Predictive demand analyses supporting workforce allocation within annual budget',
+      'exp-role-5': 'Operational Planning Assistant',
+      'exp-b5-1': 'Supported planning routines, schedule analysis and workforce data organization',
+      'exp-role-6': 'Accounting Intern',
+      'exp-b6-1': 'Account reconciliations and financial report preparation',
+      // contact
+      'contact-tag': 'Contact', 'contact-title': 'Open to the right opportunity.',
+      'contact-sub': 'Whether you need someone on the team full-time, or someone to solve a specific operational data problem — let\'s talk.',
+      'contact-opt1-title': 'Full-time roles', 'contact-opt1-desc': 'Especially aviation, ground handling and ops-heavy industries. Open to remote and international.',
+      'contact-opt2-title': 'Freelance projects', 'contact-opt2-desc': 'BI dashboards, data pipelines, automation, operational tools. Fixed scope or ongoing retainer.',
+      'contact-link-email': 'luis.luna@ufpe.br', 'contact-link-cv': '↓ CV',
+      'footer-copy': '© 2025 Luis Henrique Evaristo', 'footer-loc': 'Recife, Brazil · luis.luna@ufpe.br',
+    },
+    pt: {
+      'page-title': 'Luis Henrique Evaristo — Analista de Dados & Builder',
+      'nav-about': 'Sobre', 'nav-projects': 'Projetos', 'nav-experience': 'Experiência', 'nav-contact': 'Contato',
+      'hero-eyebrow': 'Analista de Dados · Recife, Brasil · Aberto a vagas e projetos',
+      'hero-title': 'Levando inteligência<br><span class="muted">para a sua operação.</span>',
+      'cap-title-1': 'BI & Analytics', 'cap-desc-1': 'Dashboards e KPIs que realmente orientam decisões — não só têm boa aparência.',
+      'cap-title-2': 'Integração de Dados', 'cap-desc-2': 'APIs, fontes externas, sistemas distintos — unificados em um pipeline limpo.',
+      'cap-title-3': 'Automação', 'cap-desc-3': 'Processos manuais e relatórios — substituídos por rotinas que rodam sozinhas.',
+      'cap-title-4': 'Ferramentas Operacionais', 'cap-desc-4': 'Aplicações que colocam dados em tempo real nas mãos de quem precisa na ponta.',
+      'cap-or': 'ou tudo isso junto — do problema à solução em produção',
+      'hero-sub': 'Quase 5 anos em aviação e operações. Identifico onde os dados estão falhando a equipe — e construo a solução, da análise ao deploy.',
+      'btn-work': 'Ver projetos', 'btn-talk': 'Vamos conversar',
+      'about-tag': 'Sobre',
+      'about-title': 'Comecei com BI.<br>Não parei por aí.',
+      'about-p1': 'Minha carreira começou com dashboards — relatórios Power BI para operações aeroportuárias, KPIs para gerentes de estação, acompanhamento financeiro para equipes de planejamento. Fui ficando bom nisso. Depois comecei a me perguntar o que havia antes.',
+      'about-p2': 'Quando você entende de onde vêm os dados, não consegue mais ficar só visualizando. Comecei a integrar <strong>APIs, sistemas de ponto, ferramentas de escala, fontes externas</strong> — conectando origens que as pessoas nem sabiam que podiam se conversar.',
+      'about-p3': 'Isso levou à construção de ferramentas completas: um monitor de operação em tempo real, um sistema de billing, um conversor de malha aérea que virou padrão do grupo. Cada um começou como uma análise. <strong>Cada um terminou como um produto em uso.</strong>',
+      'about-p4': 'Não sou um desenvolvedor que aprendeu analytics. Sou um analista que aprendeu a construir — e trabalho melhor quando as duas coisas são o mesmo trabalho.',
+      'stat-label-1': 'Anos em analytics & operações', 'stat-label-2': 'Najm Award — Emirates Group',
+      'stack-label-1': 'Analytics', 'stack-label-2': 'Integração & infra', 'stack-label-3': 'Desenvolvimento',
+      'proj-tag': 'Projetos',
+      'proj-section-title': 'Três problemas.<br>Três sistemas.',
+      'proj-section-sub': 'Cada um começou como uma análise que revelou uma lacuna. Cada um terminou como uma solução em produção.',
+      'p1-num': 'P.01 — Destaque', 'p1-title': 'Sistema de Monitoramento Operacional em Tempo Real',
+      'p1-desc': 'Um sistema completo de BI + web para acompanhar voos, escala e horas extras no Aeroporto do Recife — ao vivo, atualizado a cada 10 minutos.',
+      'p1-story-label': 'A história completa',
+      'p1-story': 'Começou como uma análise no Power BI. Os dados mostravam que as horas extras estavam subindo de formas que os supervisores não conseguiam perceber até o final do turno — tarde demais para agir. O problema não eram os dados. Era o atraso.<br><br>Construí um sistema que busca direto do sistema de ponto e cruza com a escala operacional automaticamente a cada 10 minutos. Hospedado em nuvem no Supabase. Front-end web acessível de qualquer dispositivo na operação. Os supervisores passaram de descobrir problemas de horas extras no fechamento mensal para agir em tempo real.',
+      'p2-num': 'P.02', 'p2-title': 'Conversor de Malha ANAC → SSIM',
+      'p2-desc': 'Converteu os dados públicos da ANAC para o formato SSIM — viabilizando 12 companhias aéreas que o sistema operacional não conseguia ler antes.',
+      'p2-story-label': 'A história completa',
+      'p2-story': 'O sistema de ground handling da dnata só tinha dados SSIM da GOL, Azul e LATAM. Todas as outras companhias operando no Brasil — 12 delas — precisavam ser gerenciadas manualmente. A ANAC publica todos os dados de malha publicamente, mas em um formato incompatível.<br><br>Construí um conversor que lê os dados da ANAC e gera arquivos SSIM válidos prontos para importação no sistema. O projeto foi reconhecido com o prêmio Najm do Emirates Group por impacto operacional.',
+      'p3-num': 'P.03', 'p3-title': 'Sistema de Billing Operacional — Blueground',
+      'p3-desc': 'Uma ferramenta de coleta de dados em campo que alimentava diretamente um dashboard de billing e geração automatizada de invoices.',
+      'p3-story-label': 'A história completa',
+      'p3-story': 'As equipes de campo registravam eventos operacionais em planilhas desconectadas, tornando o faturamento lento e propenso a erros. Não havia uma fonte única de verdade entre o que acontecia na operação e o que era faturado.<br><br>Construí um aplicativo no AppSheet para entrada de dados em campo, conectei ao Supabase e criei um dashboard com visão de billing e geração automática de invoices. Os mesmos dados alimentaram um relatório operacional no Power BI — conectado com registros de ponto e informações de escala — dando visibilidade completa da operação a partir de um único lugar.',
+      'exp-tag': 'Experiência', 'exp-title': 'Onde trabalhei.',
+      'exp-role-1': 'Especialista em Planejamento Operacional',
+      'exp-b1-1': 'Lidero previsão de workforce <span class="hi">D+45/60/90</span> para múltiplos aeroportos brasileiros',
+      'exp-b1-2': 'Estudos de capacidade para negociações de precificação e decisões com clientes companhias aéreas',
+      'exp-b1-3': 'Dashboards de performance operacional identificando oportunidades de redução de custo',
+      'exp-role-2': 'Especialista em Planejamento & Analytics',
+      'exp-b2-1': 'Construí <span class="hi">pipeline ETL em Python</span> com integrações via API automatizando relatórios de capacidade',
+      'exp-b2-2': 'Sistema de dados operacionais ponta a ponta: coleta em campo, Supabase, billing e BI automatizados',
+      'exp-role-3': 'Analista de Planejamento Operacional Sr.',
+      'exp-b3-1': 'Sistema de monitoramento de horas extras em tempo real — <span class="hi">impacto mensurável no primeiro trimestre</span>',
+      'exp-b3-2': 'Conversor SSIM adotado como padrão do grupo — <span class="hi">Najm Award, Emirates Group</span>',
+      'exp-role-4': 'Analista de Planejamento Operacional',
+      'exp-b4-1': 'Dashboard Power BI integrando previsão de voos, headcount e custo — adotado pelos gerentes de estação',
+      'exp-b4-2': 'Análises preditivas de demanda em aeroportos para alocação de workforce dentro do orçamento',
+      'exp-role-5': 'Assistente de Planejamento Operacional',
+      'exp-b5-1': 'Apoio em rotinas de planejamento, análise de malha e organização de dados de workforce',
+      'exp-role-6': 'Estagiário de Contabilidade',
+      'exp-b6-1': 'Conciliações contábeis e preparação de relatórios financeiros',
+      'contact-tag': 'Contato', 'contact-title': 'Aberto à oportunidade certa.',
+      'contact-sub': 'Precisa de alguém no time em tempo integral, ou de alguém para resolver um problema específico de dados operacionais? Vamos conversar.',
+      'contact-opt1-title': 'Vagas CLT / full-time', 'contact-opt1-desc': 'Especialmente aviação, ground handling e setores operacionais. Aberto a remoto e internacional.',
+      'contact-opt2-title': 'Projetos freelance', 'contact-opt2-desc': 'Dashboards BI, pipelines de dados, automações, ferramentas operacionais. Escopo fixo ou retainer.',
+      'contact-link-email': 'luis.luna@ufpe.br', 'contact-link-cv': '↓ CV',
+      'footer-copy': '© 2025 Luis Henrique Evaristo', 'footer-loc': 'Recife, Brasil · luis.luna@ufpe.br',
+    }
+  };
+
+  let currentLang = 'en';
+
+  function setLang(lang) {
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.title = T[lang]['page-title'];
+
+    // Toggle button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+
+    // Nav links
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const navKeys = ['nav-about','nav-projects','nav-experience','nav-contact'];
+    navLinks.forEach((a, i) => { a.textContent = T[lang][navKeys[i]]; });
+
+    // All data-key elements
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (T[lang][key] !== undefined) {
+        el.innerHTML = T[lang][key];
+      }
+    });
+  }
 </script>
 </body>
 </html>
