@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luis Henrique Evaristo — Data Analyst & Builder</title>
+<meta name="description" content="Data Analyst & BI Specialist based in Recife, Brazil. I bring intelligence to operations — dashboards, automations, and full systems end-to-end.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --white:#ffffff; --off:#f5f5f7; --off2:#ebebef;
+  --ink:#1d1d1f; --ink2:#424245; --ink3:#6e6e73; --ink4:#aeaeb2;
+  --orange:#bf4e1a; --oranged:#a84315; --orangelt:#f5ece7;
+  --rule:#d2d2d7;
+  --sans:'Sora',system-ui,sans-serif; --mono:'DM Mono',monospace;
+  --r:16px; --navh:52px;
+}
+body { font-family:var(--sans); background:var(--white); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; height:var(--navh); display:flex; align-items:center; justify-content:space-between; padding:0 max(24px,6vw); background:rgba(255,255,255,0.86); backdrop-filter:saturate(180%) blur(20px); -webkit-backdrop-filter:saturate(180%) blur(20px); border-bottom:1px solid rgba(0,0,0,0.07); }
+.nav-logo { font-family:var(--mono); font-size:13px; color:var(--ink3); letter-spacing:0.04em; text-decoration:none; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:13px; color:var(--ink3); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ink); }
+
+/* HERO */
+.hero { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:calc(var(--navh) + 80px) max(24px,8vw) 100px; max-width:1100px; margin:0 auto; }
+.hero-eyebrow { font-family:var(--mono); font-size:11px; color:var(--orange); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:28px; opacity:0; animation:fadeUp 0.6s ease forwards; }
+.hero-title { font-size:clamp(2.8rem,6.5vw,5.8rem); font-weight:600; line-height:1.05; letter-spacing:-0.03em; color:var(--ink); max-width:860px; opacity:0; animation:fadeUp 0.6s ease 0.08s forwards; }
+.hero-title .muted { color:var(--ink4); font-weight:300; }
+
+.capability-row { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:52px; max-width:860px; opacity:0; animation:fadeUp 0.6s ease 0.16s forwards; }
+.cap-card { background:var(--off); border-radius:var(--r); padding:22px 18px; border:1.5px solid transparent; transition:border-color 0.2s,transform 0.2s; }
+.cap-card:hover { border-color:var(--orange); transform:translateY(-3px); }
+.cap-title { font-size:12.5px; font-weight:600; color:var(--ink); margin-bottom:5px; }
+.cap-desc { font-size:11px; font-weight:300; color:var(--ink3); line-height:1.55; }
+
+.cap-footer { display:flex; align-items:center; gap:12px; max-width:860px; margin-top:16px; opacity:0; animation:fadeUp 0.6s ease 0.22s forwards; }
+.cap-line { flex:1; height:1px; background:var(--rule); }
+.cap-or { font-family:var(--mono); font-size:10.5px; color:var(--ink4); letter-spacing:0.08em; white-space:nowrap; }
+
+.hero-bottom { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:24px; max-width:860px; margin-top:18px; opacity:0; animation:fadeUp 0.6s ease 0.28s forwards; }
+.hero-sub { font-size:1rem; font-weight:300; color:var(--ink3); line-height:1.75; max-width:400px; }
+.hero-actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; padding-top:4px; }
+
+/* BUTTONS */
+.btn { display:inline-flex; align-items:center; gap:7px; padding:12px 24px; border-radius:980px; font-family:var(--sans); font-size:13.5px; font-weight:500; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer; }
+.btn-primary { background:var(--orange); color:#fff; }
+.btn-primary:hover { background:var(--oranged); transform:translateY(-1px); }
+.btn-ghost { background:var(--off); color:var(--ink2); }
+.btn-ghost:hover { background:var(--off2); transform:translateY(-1px); }
+
+/* SECTIONS */
+.section-wrap { padding:100px max(24px,8vw); }
+.section-inner { max-width:1080px; margin:0 auto; }
+.tag { font-family:var(--mono); font-size:10.5px; font-weight:500; color:var(--orange); letter-spacing:0.14em; text-transform:uppercase; margin-bottom:14px; }
+.section-title { font-size:clamp(2rem,4vw,3rem); font-weight:600; letter-spacing:-0.03em; color:var(--ink); line-height:1.08; margin-bottom:14px; }
+.section-sub { font-size:1rem; font-weight:300; color:var(--ink3); line-height:1.7; max-width:480px; margin-bottom:56px; }
+
+/* ABOUT */
+.about-wrap { background:var(--ink); }
+.about-wrap .tag { color:rgba(191,78,26,0.75); }
+.about-wrap .section-title { color:#fff; }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.about-text p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.82; margin-bottom:18px; }
+.about-text strong { color:rgba(255,255,255,0.85); font-weight:500; }
+
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:var(--r); overflow:hidden; }
+.stat-box { background:rgba(255,255,255,0.05); padding:28px 24px; }
+.stat-val { font-size:2.2rem; font-weight:600; letter-spacing:-0.03em; color:#fff; display:block; margin-bottom:6px; }
+.stat-val em { color:var(--orange); font-style:normal; }
+.stat-label { font-size:11.5px; font-weight:300; color:rgba(255,255,255,0.35); line-height:1.5; display:block; }
+
+.stack-section { margin-top:36px; }
+.stack-group { margin-bottom:18px; }
+.stack-group-label { font-family:var(--mono); font-size:10px; color:rgba(255,255,255,0.25); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; }
+.pill-row { display:flex; flex-wrap:wrap; gap:7px; }
+.pill { font-family:var(--mono); font-size:11.5px; padding:5px 13px; border-radius:980px; background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.1); transition:all 0.15s; }
+.pill:hover { background:rgba(191,78,26,0.2); color:#f5a07a; border-color:rgba(191,78,26,0.3); }
+.pill.hot { background:rgba(191,78,26,0.18); color:#f0895a; border-color:rgba(191,78,26,0.25); }
+
+/* PROJECTS */
+.projects-wrap { background:var(--off); }
+.project-list { display:flex; flex-direction:column; gap:16px; }
+.project-card { background:var(--white); border-radius:20px; padding:48px; display:grid; grid-template-columns:1fr 1.4fr; gap:56px; align-items:start; transition:transform 0.25s,box-shadow 0.25s; position:relative; overflow:hidden; }
+.project-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--orange); opacity:0; transition:opacity 0.25s; }
+.project-card:hover { transform:translateY(-3px); box-shadow:0 16px 48px rgba(0,0,0,0.07); }
+.project-card:hover::before { opacity:1; }
+.project-card.dark { background:var(--ink); }
+.project-card.dark::before { opacity:1; }
+
+.proj-num { font-family:var(--mono); font-size:10.5px; color:var(--ink4); letter-spacing:0.1em; margin-bottom:16px; }
+.project-card.dark .proj-num { color:rgba(255,255,255,0.2); }
+.proj-title { font-size:1.55rem; font-weight:600; letter-spacing:-0.025em; color:var(--ink); line-height:1.2; margin-bottom:14px; }
+.project-card.dark .proj-title { color:#fff; }
+.proj-desc { font-size:0.95rem; font-weight:300; color:var(--ink3); line-height:1.75; margin-bottom:20px; }
+.project-card.dark .proj-desc { color:rgba(255,255,255,0.45); }
+.proj-impact { display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; font-weight:500; color:var(--orange); background:var(--orangelt); padding:5px 13px; border-radius:980px; }
+.project-card.dark .proj-impact { background:rgba(191,78,26,0.2); color:#f5a07a; }
+
+.proj-detail-title { font-size:11px; font-weight:600; color:var(--ink3); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:14px; }
+.project-card.dark .proj-detail-title { color:rgba(255,255,255,0.25); }
+.proj-story { font-size:0.9rem; font-weight:300; color:var(--ink3); line-height:1.8; margin-bottom:24px; }
+.project-card.dark .proj-story { color:rgba(255,255,255,0.4); }
+.proj-tags { display:flex; flex-wrap:wrap; gap:7px; }
+.proj-tag { font-family:var(--mono); font-size:10.5px; color:var(--ink4); background:var(--off); padding:4px 11px; border-radius:980px; border:1px solid var(--rule); }
+.project-card.dark .proj-tag { background:rgba(255,255,255,0.06); color:rgba(255,255,255,0.3); border-color:transparent; }
+
+/* EXPERIENCE */
+.exp-item { display:grid; grid-template-columns:220px 1fr; gap:40px; padding:40px 0; border-bottom:1px solid var(--rule); opacity:0; transform:translateY(16px); transition:opacity 0.5s ease,transform 0.5s ease; }
+.exp-item:first-child { border-top:1px solid var(--rule); }
+.exp-item.visible { opacity:1; transform:translateY(0); }
+.exp-company { font-size:12.5px; font-weight:500; color:var(--ink); margin-bottom:4px; }
+.exp-period { font-family:var(--mono); font-size:10.5px; color:var(--ink4); letter-spacing:0.04em; }
+.exp-role { font-size:1.1rem; font-weight:600; letter-spacing:-0.02em; color:var(--ink); margin-bottom:12px; }
+.exp-bullets { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.exp-bullets li { font-size:0.92rem; font-weight:300; color:var(--ink3); line-height:1.65; padding-left:16px; position:relative; }
+.exp-bullets li::before { content:''; position:absolute; left:0; top:10px; width:5px; height:1px; background:var(--ink4); }
+.hi { color:var(--ink); font-weight:500; }
+
+/* CONTACT */
+.contact-wrap { background:var(--ink); padding:100px max(24px,8vw); text-align:center; }
+.contact-inner { max-width:560px; margin:0 auto; }
+.contact-wrap .tag { color:rgba(191,78,26,0.75); }
+.contact-wrap .section-title { color:#fff; }
+.contact-wrap .section-sub { color:rgba(255,255,255,0.4); max-width:none; margin-bottom:40px; }
+.contact-options { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:36px; text-align:left; }
+.contact-option { background:rgba(255,255,255,0.05); border-radius:var(--r); padding:24px; border:1px solid rgba(255,255,255,0.08); transition:border-color 0.2s,background 0.2s; }
+.contact-option:hover { background:rgba(255,255,255,0.08); border-color:rgba(191,78,26,0.4); }
+.contact-option-title { font-size:13px; font-weight:600; color:#fff; margin-bottom:5px; }
+.contact-option-desc { font-size:11.5px; font-weight:300; color:rgba(255,255,255,0.35); line-height:1.5; }
+.contact-links { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.contact-link { display:inline-flex; align-items:center; gap:7px; padding:12px 22px; border-radius:980px; font-size:13px; font-weight:400; text-decoration:none; border:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.65); transition:all 0.2s; }
+.contact-link:hover { background:var(--orange); border-color:var(--orange); color:#fff; transform:translateY(-1px); }
+
+/* FOOTER */
+footer { background:var(--ink); border-top:1px solid rgba(255,255,255,0.06); padding:22px max(24px,6vw); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+footer span { font-family:var(--mono); font-size:10.5px; color:rgba(255,255,255,0.2); letter-spacing:0.04em; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:0.08s; }
+.d2 { transition-delay:0.16s; }
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .nav-links { display:none; }
+  .capability-row { grid-template-columns:repeat(2,1fr); }
+  .about-grid { grid-template-columns:1fr; gap:40px; }
+  .project-card { grid-template-columns:1fr; gap:28px; padding:32px 24px; }
+  .exp-item { grid-template-columns:1fr; gap:10px; }
+  .contact-options { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">LH.EVARISTO</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Data Analyst · Recife, Brazil · Open to work & projects</p>
+  <h1 class="hero-title">Bringing intelligence<br><span class="muted">to your operation.</span></h1>
+
+  <div class="capability-row">
+    <div class="cap-card">
+      <p class="cap-title">BI & Analytics</p>
+      <p class="cap-desc">Dashboards and KPIs that actually drive decisions — not just look good.</p>
+    </div>
+    <div class="cap-card">
+      <p class="cap-title">Data Integration</p>
+      <p class="cap-desc">APIs, external feeds, disparate sources — unified into one clean pipeline.</p>
+    </div>
+    <div class="cap-card">
+      <p class="cap-title">Automation</p>
+      <p class="cap-desc">Manual processes and reports — replaced with routines that run themselves.</p>
+    </div>
+    <div class="cap-card">
+      <p class="cap-title">Operational Tools</p>
+      <p class="cap-desc">Apps that put real-time data in the hands of whoever needs it on the floor.</p>
+    </div>
+  </div>
+
+  <div class="cap-footer">
+    <div class="cap-line"></div>
+    <span class="cap-or">or all of it together — from problem to deployed solution</span>
+    <div class="cap-line"></div>
+  </div>
+
+  <div class="hero-bottom">
+    <p class="hero-sub">Nearly 5 years in aviation and operations. I identify where data is failing the team — and build the solution, from analysis to deployment.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn btn-primary">See my work</a>
+      <a href="#contact" class="btn btn-ghost">Let's talk</a>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about-wrap section-wrap" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p class="tag">About</p>
+        <h2 class="section-title" style="color:#fff;margin-bottom:28px;">I started with BI.<br>I didn't stop there.</h2>
+        <p>My career started with dashboards — Power BI reports for airport operations, KPIs for station managers, financial tracking for planning teams. I got good at it. Then I got curious about what was upstream.</p>
+        <p>Once you understand where data comes from, you can't go back to just visualising it. I started pulling from <strong>APIs, point systems, scheduling tools, external feeds</strong> — integrating sources that people didn't even know could talk to each other.</p>
+        <p>That led to building complete tools: a real-time staffing monitor, a billing system, a flight schedule converter that became a group-wide standard. Each one started as an analysis. <strong>Each one ended as a working product.</strong></p>
+        <p>I'm not a developer who learned analytics. I'm an analyst who learned to build — and I work best when those things are the same job.</p>
+      </div>
+      <div class="reveal d1">
+        <div class="about-stats" style="grid-template-columns:1fr 1fr;">
+          <div class="stat-box"><span class="stat-val">~<em>5</em></span><span class="stat-label">Years in analytics & ops</span></div>
+          <div class="stat-box"><span class="stat-val"><em>1</em></span><span class="stat-label">Najm Award — Emirates Group</span></div>
+        </div>
+        <div class="stack-section">
+          <div class="stack-group">
+            <p class="stack-group-label">Analytics</p>
+            <div class="pill-row"><span class="pill hot">Python</span><span class="pill hot">SQL</span><span class="pill hot">Power BI</span><span class="pill">DAX</span><span class="pill">Power Query</span></div>
+          </div>
+          <div class="stack-group">
+            <p class="stack-group-label">Integration & infra</p>
+            <div class="pill-row"><span class="pill">REST APIs</span><span class="pill">ETL</span><span class="pill">Supabase</span><span class="pill">AppSheet</span></div>
+          </div>
+          <div class="stack-group">
+            <p class="stack-group-label">Development</p>
+            <div class="pill-row"><span class="pill">React</span><span class="pill">Node.js</span><span class="pill">Git</span><span class="pill">Excel Advanced</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects-wrap section-wrap" id="projects">
+  <div class="section-inner">
+    <p class="tag reveal">Projects</p>
+    <h2 class="section-title reveal">Three problems.<br>Three systems.</h2>
+    <p class="section-sub reveal">Each started as an analysis that revealed a gap. Each ended as a working solution in production.</p>
+
+    <div class="project-list">
+
+      <div class="project-card dark reveal">
+        <div>
+          <p class="proj-num">P.01 — Featured</p>
+          <h3 class="proj-title">Real-Time Operational Monitoring System</h3>
+          <p class="proj-desc">A complete BI + web system for tracking flights, staffing and overtime at Recife Airport — live, refreshed every 10 minutes.</p>
+          <span class="proj-impact">dnata — Recife Airport</span>
+        </div>
+        <div>
+          <p class="proj-detail-title">The full story</p>
+          <p class="proj-story">It started as a Power BI analysis. The data showed that overtime was spiking in ways supervisors couldn't catch until end of shift — too late to do anything about it. The problem wasn't the data. It was the lag.<br><br>I built a system that pulls directly from the timesheet system and cross-references it with the operational schedule automatically every 10 minutes. Cloud-hosted on Supabase. Web front-end accessible from any device on the floor. Supervisors went from finding out about overtime problems at month-end to acting on them in real time.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span><span class="proj-tag">Supabase</span><span class="proj-tag">REST API</span><span class="proj-tag">Power BI</span><span class="proj-tag">Web front-end</span><span class="proj-tag">Full-stack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div>
+          <p class="proj-num">P.02</p>
+          <h3 class="proj-title">ANAC → SSIM Flight Schedule Converter</h3>
+          <p class="proj-desc">Converted Brazil's public aviation authority data into SSIM format — unlocking 12 airlines that the operations system couldn't previously read.</p>
+          <span class="proj-impact">Najm Award — Emirates Group</span>
+        </div>
+        <div>
+          <p class="proj-detail-title">The full story</p>
+          <p class="proj-story">dnata's ground handling system only had SSIM data for GOL, Azul, and LATAM. Every other airline operating in Brazil — 12 of them — had to be managed manually. ANAC publishes all schedule data publicly, but in an incompatible format.<br><br>I built a converter that takes the ANAC data and outputs clean, valid SSIM files ready for system import. Emirates Group then replicated the solution in Canada, the Netherlands, and Australia. It won the internal Najm award for operational impact.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span><span class="proj-tag">SSIM format</span><span class="proj-tag">ANAC public data</span><span class="proj-tag">Data modeling</span><span class="proj-tag">Aviation ops</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div>
+          <p class="proj-num">P.03</p>
+          <h3 class="proj-title">Operational Billing System — Blueground</h3>
+          <p class="proj-desc">A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.</p>
+        </div>
+        <div>
+          <p class="proj-detail-title">The full story</p>
+          <p class="proj-story">Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management visibility across the entire operation from one place.</p>
+          <div class="proj-tags">
+            <span class="proj-tag">AppSheet</span><span class="proj-tag">Supabase</span><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">ETL</span><span class="proj-tag">Invoice automation</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section-wrap" id="experience">
+  <div class="section-inner">
+    <p class="tag reveal">Experience</p>
+    <h2 class="section-title reveal">Where I've worked.</h2>
+    <div style="margin-top:48px;">
+      <div class="exp-item">
+        <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Nov 2024 — Present</p></div>
+        <div>
+          <p class="exp-role">Operational Planning Specialist</p>
+          <ul class="exp-bullets">
+            <li>Lead <span class="hi">D+45/60/90 workforce forecasting</span> for multiple Brazilian airports</li>
+            <li>Capacity studies supporting pricing negotiations and airline client decisions</li>
+            <li>Performance dashboards identifying cost-saving opportunities for senior leadership</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><p class="exp-company">Blueground</p><p class="exp-period">Oct 2023 — Oct 2024</p></div>
+        <div>
+          <p class="exp-role">Capacity Planning & Analytics Specialist</p>
+          <ul class="exp-bullets">
+            <li>Built <span class="hi">Python ETL pipeline</span> with API integrations automating capacity reporting</li>
+            <li>End-to-end operational data system: field capture, Supabase, automated billing and BI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Apr — Oct 2023</p></div>
+        <div>
+          <p class="exp-role">Operational Planning Analyst Sr.</p>
+          <ul class="exp-bullets">
+            <li>Real-time overtime monitoring system end-to-end — <span class="hi">measurable impact, first quarter</span></li>
+            <li>SSIM converter adopted as group standard — <span class="hi">Najm Award, Emirates Group</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Apr 2022 — Apr 2023</p></div>
+        <div>
+          <p class="exp-role">Operational Planning Analyst</p>
+          <ul class="exp-bullets">
+            <li>Power BI dashboard integrating flight forecasts, headcount and cost — adopted by station managers</li>
+            <li>Predictive demand analyses supporting workforce allocation within annual budget</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><p class="exp-company">dnata — Emirates Group</p><p class="exp-period">Oct 2021 — Apr 2022</p></div>
+        <div>
+          <p class="exp-role">Operational Planning Assistant</p>
+          <ul class="exp-bullets"><li>Supported planning routines, schedule analysis and workforce data organization</li></ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div><p class="exp-company">Tempest Security</p><p class="exp-period">2019 — 2020</p></div>
+        <div>
+          <p class="exp-role">Accounting Intern</p>
+          <ul class="exp-bullets"><li>Account reconciliations and financial report preparation</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-wrap" id="contact">
+  <div class="contact-inner">
+    <p class="tag">Contact</p>
+    <h2 class="section-title">Open to the right opportunity.</h2>
+    <p class="section-sub">Whether you need someone on the team full-time, or someone to solve a specific operational data problem — let's talk.</p>
+    <div class="contact-options">
+      <div class="contact-option">
+        <p class="contact-option-title">Full-time roles</p>
+        <p class="contact-option-desc">Especially aviation, ground handling and ops-heavy industries. Open to remote and international.</p>
+      </div>
+      <div class="contact-option">
+        <p class="contact-option-title">Freelance projects</p>
+        <p class="contact-option-desc">BI dashboards, data pipelines, automation, operational tools. Fixed scope or ongoing retainer.</p>
+      </div>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:luis.luna@ufpe.br">luis.luna@ufpe.br</a>
+      <a class="contact-link" href="https://linkedin.com/in/luishevaristo" target="_blank">LinkedIn</a>
+      <a class="contact-link" href="https://github.com/luisluna97" target="_blank">GitHub</a>
+      <a class="contact-link" href="Luis_Henrique_Evaristo_CV.pdf" download>↓ CV</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 Luis Henrique Evaristo</span>
+  <span>Recife, Brazil · luis.luna@ufpe.br</span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.reveal, .exp-item').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
