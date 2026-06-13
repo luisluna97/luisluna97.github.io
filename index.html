@@ -272,8 +272,8 @@ footer span{font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,0.2)
     <li><a href="#contact" data-key="nav-contact">Contact</a></li>
   </ul>
   <div class="lang-toggle">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn active" onclick="setLang('pt')">PT</button>
   </div>
 </nav>
 
@@ -363,8 +363,8 @@ footer span{font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,0.2)
         <div class="case-body">
           <div class="case-left">
             <p class="case-num" data-key="p1-num">P.01 — Featured</p>
-            <h3 class="case-title" data-key="p1-title">Real-Time Operational Monitoring System</h3>
-            <p class="case-desc" data-key="p1-desc">A complete BI + web system for tracking flights, staffing, GSE and overtime across dnata's Brazilian airports — live, refreshed every 10 minutes.</p>
+            <h3 class="case-title" data-key="p1-title">Portal de Voos — Inteligência Operacional em Tempo Real</h3>
+            <p class="case-desc" data-key="p1-desc">Um produto web completo que substituiu planilhas, Power BI estático e repasses manuais por uma plataforma única — voos, escala, GSE e demanda conectados e atualizados a cada 10 minutos.</p>
             <span class="case-award">✈ dnata — Recife Airport</span>
           </div>
 
@@ -506,15 +506,15 @@ footer span{font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,0.2)
       <div class="project-card reveal">
         <div>
           <p class="proj-num" data-key="p3-num">P.03</p>
-          <h3 class="proj-title" data-key="p3-title">Operational Billing System — Blueground</h3>
-          <p class="proj-desc" data-key="p3-desc">A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.</p>
+          <h3 class="proj-title" data-key="p3-title">Sistema de Dados Operacional — Blueground</h3>
+          <p class="proj-desc" data-key="p3-desc">Um sistema que eliminou o papel e a digitação intermediária: do AppSheet nas mãos dos líderes de voo até o PDF de faturamento auditável — com dashboards cruzando serviços, aluguéis, ponto e escala.</p>
           <span class="proj-impact">Blueground Operations</span>
         </div>
         <div>
           <p class="proj-detail-title" data-key="p3-story-label">The full story</p>
-          <p class="proj-story" data-key="p3-story">Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management full visibility from one place.</p>
+          <p class="proj-story" data-key="p3-story">A operação registrava tudo em papel. Alguém então passava para o Excel, e só aí o faturamento era montado manualmente — auditado linha por linha. Não havia rastreabilidade, o cruzamento com dados de pessoas não existia, e qualquer erro ficava escondido até o fechamento.<br><br>Desenvolvi um app no AppSheet usado pelos líderes de voo diretamente no aeroporto. Os registros — atendimentos, aluguéis, qualquer ocorrência — iam direto para a nuvem nativa do AppSheet, eliminando o papel e a digitação intermediária. A partir daí, dois outputs: um gerador de PDF que produzia o faturamento auditável automaticamente, e um dashboard Power BI que cruzava os dados de serviços e aluguéis com registros de ponto e escala — dando à gestão a visão de demanda versus capacidade sem nenhum dado manual no meio.</p>
           <div class="proj-tags">
-            <span class="proj-tag">AppSheet</span><span class="proj-tag">Supabase</span><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">ETL</span><span class="proj-tag">Invoice automation</span>
+            <span class="proj-tag">AppSheet</span><span class="proj-tag">Power BI</span><span class="proj-tag">Python</span><span class="proj-tag">PDF automation</span><span class="proj-tag">ETL</span><span class="proj-tag">Invoice automation</span>
           </div>
         </div>
       </div><!-- /P.03 -->
@@ -686,8 +686,8 @@ const T = {
     'proj-section-sub':'Each started as an analysis that revealed a gap. Each ended as a working solution in production.',
     'p1-result-label':'Result',
     'imp-1':'overtime in<br>3 months','imp-2':'OT hours/mo<br>at REC','imp-3':'airports<br>covered','imp-4':'refresh<br>window',
-    'p1-num':'P.01 — Featured','p1-title':'Real-Time Operational Monitoring System',
-    'p1-desc':'A complete BI + web system for tracking flights, staffing, GSE and overtime across dnata\'s Brazilian airports — live, refreshed every 10 minutes.',
+    'p1-num':'P.01 — Flagship','p1-title':'Flight Portal — Real-Time Operational Intelligence',
+    'p1-desc':'A full web product that replaced spreadsheets, static Power BI and manual shift briefings with a single platform — flights, staff, GSE and demand connected and refreshed every 10 minutes.',
     'tab-1':'Monthly summary','tab-2':'Real-time','tab-3':'Flight list','tab-4':'GSE',
     'arch-label':'How it was built',
     'arch-1-name':'Data sources','arch-1-sub':'SIROS · ANAC · Avionio API · RVPE schedules · OAG',
@@ -702,7 +702,7 @@ const T = {
     'p3-num':'P.03','p3-title':'Operational Billing System — Blueground',
     'p3-desc':'A field data capture tool that fed directly into a billing dashboard and automated invoice generation — end-to-end.',
     'p3-story-label':'The full story',
-    'p3-story':'Field teams were logging operational events on disconnected spreadsheets, making billing slow and error-prone. There was no single source of truth between what happened on the ground and what got invoiced.<br><br>I built an AppSheet application for field data entry, connected it to Supabase, and built a dashboard with a billing view and automated invoice generation. The same data fed a Power BI operational report — connected with attendance records and scheduling information — giving management full visibility from one place.',
+    'p3-story':'The operation ran on paper. Someone would transcribe it into Excel, and only then was billing assembled manually — audited line by line. No traceability, no integration with workforce data, and errors stayed hidden until month close.<br><br>I built an AppSheet application used by flight leaders directly on the ramp. Every record — flight services, equipment rentals, any occurrence — went straight into AppSheet\'s native cloud, eliminating paper and the transcription step entirely. From there, two outputs: an automated PDF generator producing auditable invoices, and a Power BI dashboard that cross-referenced service and rental data with attendance and scheduling records — giving management a demand-vs-capacity view with no manual data entry in the middle.',
     'exp-tag':'Experience','exp-title':"Where I've worked.",
     'exp-role-1':'Operational Planning Specialist',
     'exp-b1-1':'Lead <span class="hi">D+45/60/90 workforce forecasting</span> for multiple Brazilian airports',
@@ -749,8 +749,8 @@ const T = {
     'proj-section-sub':'Cada um começou como uma análise que revelou uma lacuna. Cada um terminou como uma solução em produção.',
     'p1-result-label':'Resultado',
     'imp-1':'horas extras<br>em 3 meses','imp-2':'HE/mês<br>no REC','imp-3':'aeroportos<br>cobertos','imp-4':'janela de<br>atualização',
-    'p1-num':'P.01 — Destaque','p1-title':'Sistema de Monitoramento Operacional em Tempo Real',
-    'p1-desc':'Um sistema completo de BI + web para acompanhar voos, escala, GSE e horas extras nos aeroportos brasileiros da dnata — ao vivo, atualizado a cada 10 minutos.',
+    'p1-num':'P.01 — Flagship','p1-title':'Portal de Voos — Inteligência Operacional em Tempo Real',
+    'p1-desc':'Um produto web completo que substituiu planilhas, Power BI estático e repasses manuais por uma plataforma única — voos, escala, GSE e demanda conectados e atualizados a cada 10 minutos.',
     'tab-1':'Resumo mensal','tab-2':'Tempo real','tab-3':'Lista de voos','tab-4':'GSE',
     'arch-label':'Como foi construído',
     'arch-1-name':'Fontes de dados','arch-1-sub':'SIROS · ANAC · Avionio API · Malhas RVPE · OAG',
@@ -765,7 +765,7 @@ const T = {
     'p3-num':'P.03','p3-title':'Sistema de Billing Operacional — Blueground',
     'p3-desc':'Uma ferramenta de coleta de dados em campo que alimentava diretamente um dashboard de billing e geração automatizada de invoices — ponta a ponta.',
     'p3-story-label':'A história completa',
-    'p3-story':'As equipes de campo registravam eventos operacionais em planilhas desconectadas, tornando o faturamento lento e propenso a erros. Não havia uma fonte única de verdade entre o que acontecia na operação e o que era faturado.<br><br>Construí um aplicativo no AppSheet para entrada de dados em campo, conectei ao Supabase e criei um dashboard com visão de billing e geração automática de invoices. Os mesmos dados alimentaram um relatório operacional no Power BI — conectado com registros de ponto e escala — dando visibilidade completa da operação a partir de um único lugar.',
+    'p3-story':'A operação registrava tudo em papel. Alguém então passava para o Excel, e só aí o faturamento era montado manualmente — auditado linha por linha. Não havia rastreabilidade, cruzamento com dados de pessoas ou qualquer visibilidade antes do fechamento.<br><br>Desenvolvi um app no AppSheet usado pelos líderes de voo diretamente no aeroporto. Os registros — atendimentos, aluguéis, qualquer ocorrência — iam direto para a nuvem nativa do AppSheet, eliminando o papel e a digitação intermediária. A partir daí, dois outputs paralelos: um gerador de PDF com o faturamento auditável automático, e um dashboard Power BI cruzando serviços e aluguéis com ponto e escala — dando à gestão visão de demanda versus capacidade sem nenhum dado manual no meio.',
     'exp-tag':'Experiência','exp-title':'Onde trabalhei.',
     'exp-role-1':'Especialista em Planejamento Operacional',
     'exp-b1-1':'Lidero previsão de workforce <span class="hi">D+45/60/90</span> para múltiplos aeroportos brasileiros',
@@ -791,6 +791,9 @@ const T = {
     'footer-copy':'© 2025 Luis Henrique Evaristo','footer-loc':'Recife, Brasil · luis.luna@ufpe.br',
   }
 };
+
+// Set PT as default on load
+document.addEventListener('DOMContentLoaded', () => setLang('pt'));
 
 function setLang(lang) {
   document.documentElement.lang = lang;
